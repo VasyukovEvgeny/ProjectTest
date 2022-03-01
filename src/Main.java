@@ -2,12 +2,15 @@ import java.lang.*;
 import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
+        System.out.println("Меню:");
         System.out.println("1. Ввести пример.");
         System.out.println("2. Продолжить работать с предыдущим ответом.");
         System.out.println("3. Выход");
+        System.out.println("Введите необходимый пункт меню в виде числа:");
         String second_number = "";
         int first_number_int=0;
         int second_number_int=0;
+        int first_iteration_number = 0;
         int i=0;
         int scr_int = 0;
         while (scr_int < 3){
@@ -15,8 +18,10 @@ public class Main {
             scr_int = scr.nextInt();
             switch (scr_int) {
                 case 1:
+                    System.out.println("Введите Число1 Символ Число2:");
                     Scanner scr_1 = new Scanner(System.in);
                     String scr_1_string = scr_1.nextLine();
+
                     String scr_1_string_arr[] = scr_1_string.split(" ");
                     String first_number = scr_1_string_arr[0];
                     first_number_int = Integer.parseInt(first_number);
@@ -27,22 +32,34 @@ public class Main {
                         switch(symbol){
                             case "+":
                                 System.out.println(Sum(first_number_int,second_number_int));
+                                first_iteration_number = Sum(first_number_int,second_number_int);
+                                System.out.println("Введите необходимый пункт меню в виде числа:");
                                 break;
                             case "-":;
 
                                 System.out.println(Diff(first_number_int,second_number_int));
+                                first_iteration_number = Diff(first_number_int,second_number_int);
+                                System.out.println("Введите необходимый пункт меню в виде числа:");
                                 break;
                             case "*":;
                                 System.out.println(Mult(first_number_int,second_number_int));
+                                first_iteration_number = Mult(first_number_int,second_number_int);
+                                System.out.println("Введите необходимый пункт меню в виде числа:");
                                 break;
                             case "/":;
                                 System.out.println(Div(first_number_int,second_number_int));
+                                first_iteration_number = Div(first_number_int,second_number_int);
+                                System.out.println("Введите необходимый пункт меню в виде числа:");
                                 break;
                             case "^":
                                 System.out.println(Deg(first_number_int,second_number_int));
+                                first_iteration_number = Deg(first_number_int,second_number_int);
+                                System.out.println("Введите необходимый пункт меню в виде числа:");
                                 break;
                             case "?":
                                 System.out.println(Comp(first_number_int,second_number_int));
+//                                first_iteration_number = Comp(first_number_int,second_number_int);
+                                System.out.println("Введите необходимый пункт меню в виде числа:");
                                 break;
                             default:;
                         }
@@ -50,14 +67,18 @@ public class Main {
                     else switch(symbol) {
                         case "!":
                             System.out.println(Fact(first_number_int));
+                            first_iteration_number = Fact(first_number_int);
+                            System.out.println("Введите необходимый пункт меню в виде числа:");
                             break;
                         default:;
                     }
                     break;
                 case 2:
-                    if (first_number_int == 0)
+                    if (first_iteration_number == 0)
                         System.out.println("Недоступно");
-                    else{
+                    else{System.out.println("Введите новое число для операции:");
+                        Scanner scr_case_2 = new Scanner(System.in);
+                        second_number_int = scr_case_2.nextInt();
                         System.out.println("1. Сложение");
                         System.out.println("2. Вычитание");
                         System.out.println("3. Умножение");
@@ -66,28 +87,35 @@ public class Main {
                         System.out.println("6. Возведение в степень");
                         System.out.println("7. Сравнение");
                         System.out.println("0. Назад");
+                        System.out.println("Выберите необходимую операцию в виде числа:");
                     Scanner scr_new = new Scanner(System.in);
                     int scr_int_new = 0;
                     scr_int_new = scr_new.nextInt();
                         if (scr_int_new != 5) {
                             switch(scr_int_new){
                                 case 1:
-                                    System.out.println(Sum(first_number_int,second_number_int));
+                                    System.out.println(Sum(first_iteration_number ,second_number_int));
+                                    System.out.println("Введите необходимый пункт меню в виде числа:");
                                     break;
                                 case 2:
-                                    System.out.println(Diff(first_number_int,second_number_int));
+                                    System.out.println(Diff(first_iteration_number ,second_number_int));
+                                    System.out.println("Введите необходимый пункт меню в виде числа:");
                                     break;
                                 case 3:
-                                    System.out.println(Mult(first_number_int,second_number_int));
+                                    System.out.println(Mult(first_iteration_number ,second_number_int));
+                                    System.out.println("Введите необходимый пункт меню в виде числа:");
                                     break;
                                 case 4:
-                                    System.out.println(Div(first_number_int,second_number_int));
+                                    System.out.println(Div(first_iteration_number ,second_number_int));
+                                    System.out.println("Введите необходимый пункт меню в виде числа:");
                                     break;
                                 case 6:
-                                    System.out.println(Deg(first_number_int,second_number_int));
+                                    System.out.println(Deg(first_iteration_number ,second_number_int));
+                                    System.out.println("Введите необходимый пункт меню в виде числа:");
                                     break;
                                 case 7:
-                                    System.out.println(Comp(first_number_int,second_number_int));
+                                    System.out.println(Comp(first_iteration_number ,second_number_int));
+                                    System.out.println("Введите необходимый пункт меню в виде числа:");
                                     break;
                                 case 0:
                                     System.out.println("1. Ввести пример.");
@@ -98,7 +126,8 @@ public class Main {
                         }
                         else switch(scr_int_new) {
                             case 5:
-                                System.out.println(Fact(first_number_int));
+                                System.out.println(Fact(first_iteration_number ));
+                                System.out.println("Введите необходимый пункт меню в виде числа:");
                                 break;
                             default:;
                         }}
